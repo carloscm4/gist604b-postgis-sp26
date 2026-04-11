@@ -27,7 +27,18 @@ WHERE name = 'Queensboro Brg';
 
 -- TODO: Write your query below
 
-
+SELECT 
+    name AS neighborhood,
+    boroname AS borough
+FROM nyc_neighborhoods
+WHERE ST_Intersects(
+    geom,
+    (
+        SELECT geom
+        FROM nyc_streets
+        WHERE name = 'Queensboro Brg'
+    )
+);
 
 
 -- Exercise 3: What streets does Queensboro Brg intersect with?
