@@ -49,7 +49,9 @@ WHERE boroname = 'The Bronx';
 -- Hint: ST_NumInteriorRings(geom) = 0 means no holes (interior rings)
 
 -- TODO: Write your query below
-
+SELECT COUNT(*) AS no_hole_polygons
+FROM nyc_census_blocks
+WHERE ST_NumInteriorRings(geom) = 0;
 
 
 
