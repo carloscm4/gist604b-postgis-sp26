@@ -56,7 +56,18 @@ WHERE ST_Intersects(
 
 -- TODO: Write your query below
 
-
+SELECT name
+FROM nyc_streets
+WHERE ST_Intersects(
+    geom,
+    (
+        SELECT geom
+        FROM nyc_streets
+        WHERE name = 'Queensboro Brg'
+    )
+)
+AND name != 'Queensboro Brg'
+AND name IS NOT NULL;
 
 
 -- Exercise 4: Approximately how many people live within 50 meters of Queensboro Brg?
