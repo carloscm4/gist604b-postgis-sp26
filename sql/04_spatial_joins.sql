@@ -17,7 +17,13 @@
 
 -- TODO: Write your query below
 
-
+SELECT 
+    ss.name,
+    ss.routes
+FROM nyc_subway_stations ss
+JOIN nyc_neighborhoods n
+ON ST_Intersects(ss.geom, n.geom)
+WHERE n.name = 'East Village';
 
 
 -- Exercise 2: What are all the neighborhoods served by the 7-train?
