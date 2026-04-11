@@ -104,7 +104,10 @@ WHERE name = '5th Ave';
 
 -- TODO: Write your query below
 
-
+SELECT 
+    ST_AsGeoJSON(geom) AS soho_geojson
+FROM nyc_neighborhoods
+WHERE name = 'Soho';
 
 
 -- Exercise 7: How many polygons are in the 'Coney Island' multipolygon?
