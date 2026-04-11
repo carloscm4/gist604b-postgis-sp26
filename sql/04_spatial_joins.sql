@@ -67,7 +67,12 @@ WHERE ss.routes LIKE '%7%';
 
 -- TODO: Write your query below
 
-
+SELECT 
+    SUM(cb.popn_total) AS total_population
+FROM nyc_census_blocks cb
+JOIN nyc_neighborhoods n
+ON ST_Intersects(cb.geom, n.geom)
+WHERE n.name = 'Financial District';
 
 
 
