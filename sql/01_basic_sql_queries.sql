@@ -47,7 +47,12 @@ WHERE boroname = 'Manhattan';
 -- Hint: Use ORDER BY boroname for readability
 
 -- TODO: Write your query below
-
+SELECT 
+    boroname,
+    (SUM(popn_black) * 100.0 / SUM(popn_total)) AS percentage_black
+FROM nyc_census_blocks
+GROUP BY boroname
+ORDER BY boroname;
 
 
 
